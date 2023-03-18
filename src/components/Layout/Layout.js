@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
-    <Suspense fallback={<Loader withBackdrop={true} />}>
+    <Suspense fallback={<Loader />}>
       <Outlet />
     </Suspense>
   );

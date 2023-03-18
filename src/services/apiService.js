@@ -13,7 +13,7 @@ export async function fetchTotalCountUsers() {
   }
 }
 
-export async function fetchAllCHaracters(arrUsers, page = 1) {
+export async function fetchCHaracter(arrUsers, page = 1) {
   try {
     const resp = await axios.get(`/character/${arrUsers}?page=${page}
 `);
@@ -26,7 +26,8 @@ export async function fetchAllCHaracters(arrUsers, page = 1) {
 
 export async function fetchCHaracterByName(name) {
   try {
-    const resp = await axios.get(`/character/?name=${name}
+    const resp =
+      await axios.get(`/character/?gender=&status=&species=&name=${name}
 `);
     return resp;
   } catch (error) {

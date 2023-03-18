@@ -1,16 +1,16 @@
 const FilterInput = ({ onChangeFilter, filter }) => {
-  const onChange = e => {
-    const value = e.target.value;
+  // const onChange = e => {
+  //   const value = e.target.value;
 
-    onChangeFilter(value);
-  };
+  //   onChangeFilter(value);
+  // };
   return (
     <form action="">
       <input
         type="text"
         placeholder="Filter by name..."
         name="filter"
-        onInput={onChange}
+        onInput={onChangeFilter}
         value={filter}
       />
     </form>

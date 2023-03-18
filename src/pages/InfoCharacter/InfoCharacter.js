@@ -1,7 +1,11 @@
-import React from 'react';
+import CharacterDetails from 'components/CharacterDetails/CharacterDetails';
 
 const InfoCharacter = () => {
-  return <div></div>;
+  return (
+    <>
+      <CharacterDetails />
+    </>
+  );
 };
 
 export default InfoCharacter;

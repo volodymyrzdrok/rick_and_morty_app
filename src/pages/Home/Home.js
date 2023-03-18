@@ -1,24 +1,38 @@
 import { Pagination } from '@mui/material';
 import CharactersList from 'components/CharactersList/CharactersList';
 import FilterInput from 'components/FilterInput/FilterInput';
+import Loader from 'components/Loader/Loader';
 import { useLocalStorage } from 'hooks/useLocalStorage';
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
-  fetchAllCHaracters,
+  fetchCHaracter,
   fetchCHaracterByName,
   fetchTotalCountUsers,
 } from 'services/apiService';
-import { getUsersIdArr } from 'utils/getUsersIdArr';
+import { getUsersIdArr, getUsersIdArrByName } from 'utils/getUsersIdArr';
 import logo from '../../assets/images/logo.webp';
 
 const Home = () => {
   const [arrWithIds, setArrWithIds] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useLocalStorage('page_r&m', 1);
   const [users, setUsers] = useState([]);
-  const [filter, setFilter] = useLocalStorage('filter_r&m', '');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query');
+  const [filter, setFilter] = useState(query ?? '');
+  const [isLoading, setIsLoading] = useState(false);
 
   const onChangePage = (e, p) => {
     setPage(p);
+  };
+
+  const onChangeFilter = e => {
+    const value = e.target.value;
+    if (filter) {
+      setSearchParams({ query: value });
+      setPage(1);
+    }
+    setFilter(value);
   };
 
   const getArrWithId = async () => {
@@ -29,26 +43,22 @@ const Home = () => {
       console.log(error);
     }
   };
+
   const getCharactersByName = async name => {
+    setIsLoading(true);
     try {
       const { data } = await fetchCHaracterByName(name);
-      setArrWithIds(getUsersIdArr(data.info.count));
-
       setUsers(data.results.length ? data.results : [data.results]);
-
-      //   console.log('resp :', { data });
+      setArrWithIds(getUsersIdArrByName(data.results));
     } catch (err) {
-      console.log('err.messages :', err.message);
-      if (err.message.includes(`Cannot destructure property 'data'`)) {
-        setUsers([]);
-        setArrWithIds([]);
-      }
-      //   console.log(error.message);
+      setUsers([]);
+      setArrWithIds([]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    setPage(1);
     if (!filter) {
       getArrWithId();
     } else {
@@ -57,14 +67,15 @@ const Home = () => {
   }, [filter]);
 
   const getAllCharacters = async (arrUsersId, page) => {
+    setIsLoading(true);
+
     try {
-      const { data } = await fetchAllCHaracters(arrUsersId, page);
-
+      const { data } = await fetchCHaracter(arrUsersId, page);
       setUsers(data.length ? data : [data]);
-
-      //   console.log('data :');
-    } catch (error) {
-      console.dir(error);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -79,14 +90,20 @@ const Home = () => {
       <div>
         <img src={logo} alt="logo" />
       </div>
-      <FilterInput onChangeFilter={setFilter} filter={filter} />
-      <CharactersList users={users} />
-      {arrWithIds.length > 1 && (
-        <Pagination
-          count={arrWithIds.length}
-          page={page}
-          onChange={onChangePage}
-        />
+      <FilterInput onChangeFilter={onChangeFilter} filter={filter} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <CharactersList users={users} />
+          {arrWithIds.length > 1 && (
+            <Pagination
+              count={arrWithIds.length}
+              page={page}
+              onChange={onChangePage}
+            />
+          )}
+        </>
       )}
     </>
   );
