@@ -1,4 +1,4 @@
-import { Pagination } from '@mui/material';
+import BasicPagination from 'components/Pagination/Pagination';
 import CharactersList from 'components/CharactersList/CharactersList';
 import FilterInput from 'components/FilterInput/FilterInput';
 import Loader from 'components/Loader/Loader';
@@ -97,7 +97,7 @@ const Home = () => {
         <>
           <CharactersList users={users} />
           {arrWithIds.length > 1 && (
-            <Pagination
+            <BasicPagination
               count={arrWithIds.length}
               page={page}
               onChange={onChangePage}
