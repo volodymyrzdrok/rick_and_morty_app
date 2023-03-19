@@ -11,7 +11,7 @@ import {
   fetchTotalCountUsers,
 } from 'services/apiService';
 import { getUsersIdArr, getUsersIdArrByName } from 'utils/getUsersIdArr';
-import logo from '../../assets/images/logo.webp';
+import Logo from 'components/Logo/Logo';
 
 const Home = () => {
   const [arrWithIds, setArrWithIds] = useState([]);
@@ -87,9 +87,7 @@ const Home = () => {
 
   return (
     <>
-      <div>
-        <img src={logo} alt="logo" />
-      </div>
+      <Logo />
       <FilterInput onChangeFilter={onChangeFilter} filter={filter} />
       {isLoading ? (
         <Loader />

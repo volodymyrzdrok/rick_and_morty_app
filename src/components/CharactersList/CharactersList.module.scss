@@ -1,0 +1,64 @@
+@import 'index.scss';
+.list {
+  @include from-mobile-only-media {
+    @include wraper();
+  }
+}
+
+.item {
+  @include to-mobile-only-media {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+    width: 100%;
+  }
+
+  @include from-mobile-only-media {
+    flex-basis: calc((100% - 20px) / 2);
+  }
+
+  @include tablet-media {
+    flex-basis: calc((100% - 40px) / 3);
+  }
+  @include desktop-media {
+    flex-basis: calc((100% - 60px) / 4);
+  }
+  box-shadow: $shadow;
+  border-radius: 4px;
+  overflow: hidden;
+  transform: scale(1);
+  transition: all $animation;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.imgContainer {
+  // bor
+  overflow: hidden;
+  max-height: 232px;
+  @include centeredFlex();
+  @include tablet-media {
+    max-height: 168px;
+  }
+}
+
+.img {
+  width: 100%;
+}
+
+.descContainer {
+  background-color: #fff;
+  padding: 14px 10px;
+}
+
+.title {
+  letter-spacing: 0.15px;
+  @include font(20px, 30px, 500);
+  color: rgba(0, 0, 0, 0.87);
+}
+.desc {
+  @include font(14px, 18px, 400);
+  color: $secondaryTextColor;
+  letter-spacing: 0.25px;
+}

@@ -1,0 +1,31 @@
+@import 'index.scss';
+
+.form {
+  margin-bottom: 32px;
+  @include tablet-media {
+    margin-bottom: 61px;
+  }
+  position: relative;
+  @include centeredFlex();
+}
+.input {
+  height: 56px;
+  padding: 0 48px;
+  border-radius: 8px;
+  color: $mainTextColor;
+  border: 1px solid $placeholderColor;
+  outline: none;
+  min-width: 100%;
+  @include font(16px, 25px, 400);
+  text-transform: capitalize;
+}
+.input::placeholder {
+  color: $placeholderColor;
+  text-transform: none;
+}
+.svg {
+  display: block;
+  position: absolute;
+  left: 19px;
+  fill: $placeholderColor;
+}

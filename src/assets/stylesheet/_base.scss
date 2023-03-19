@@ -1,10 +1,11 @@
 @import-normalize; /* bring in normalize.css styles */
 
-@import './vars';
-@import './mixins';
+@import './_vars';
+@import './_mixins';
 
 * {
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 html {
   scroll-behavior: smooth;
@@ -13,8 +14,8 @@ html {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-  // font-size: 18px;
-  // color: $mainTextColor;
+
+  color: $mainTextColor;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -49,23 +50,22 @@ button {
   cursor: pointer;
 }
 
-// .container {
-//   min-width: $to-mobile;
-//   width: 100%;
-//   margin: 0 auto;
-//   padding: 0 20px;
+.container {
+  min-width: $to-mobile;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 24px;
 
-//   @include mobile-media {
-//     width: $mobile;
-//   }
+  @include mobile-media {
+    min-width: $mobile;
+  }
 
-//   @include tablet-media {
-//     width: $tablet;
-//     padding: 0 32px;
-//   }
+  @include tablet-media {
+    min-width: $tablet;
+  }
 
-//   @include desktop-media {
-//     width: $desktop;
-//     padding: 0 16px;
-//   }
-// }
+  @include desktop-media {
+    width: $desktop;
+  }
+}

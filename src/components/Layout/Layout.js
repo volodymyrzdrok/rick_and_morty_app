@@ -4,9 +4,11 @@ import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
-    <Suspense fallback={<Loader />}>
-      <Outlet />
-    </Suspense>
+    <div className="container">
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
+    </div>
   );
 };
 

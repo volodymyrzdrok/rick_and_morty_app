@@ -1,0 +1,11 @@
+@import 'index.scss';
+
+.logoContainer {
+  @include centeredFlex();
+
+  padding: 0px 0px 32px 0px;
+
+  @include tablet-media {
+    padding: 0px 0px 16px 0px;
+  }
+}
