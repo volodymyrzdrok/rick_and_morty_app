@@ -13,9 +13,9 @@ export async function fetchTotalCountUsers() {
   }
 }
 
-export async function fetchCHaracter(arrUsers, page = 1) {
+export async function fetchCHaracter(arrUsers) {
   try {
-    const resp = await axios.get(`/character/${arrUsers}?page=${page}
+    const resp = await axios.get(`/character/${arrUsers}
 `);
 
     return resp;

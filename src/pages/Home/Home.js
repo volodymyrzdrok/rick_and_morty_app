@@ -66,11 +66,11 @@ const Home = () => {
     }
   }, [filter]);
 
-  const getAllCharacters = async (arrUsersId, page) => {
+  const getAllCharacters = async arrUsersId => {
     setIsLoading(true);
 
     try {
-      const { data } = await fetchCHaracter(arrUsersId, page);
+      const { data } = await fetchCHaracter(arrUsersId);
       setUsers(data.length ? data : [data]);
     } catch (err) {
       console.log(err);
@@ -81,7 +81,7 @@ const Home = () => {
 
   useEffect(() => {
     if (arrWithIds.length > 0) {
-      getAllCharacters(arrWithIds[page - 1], page);
+      getAllCharacters(arrWithIds[page - 1]);
     }
   }, [arrWithIds, page]);
 

@@ -1,3 +1,5 @@
+import { sortByName } from './sortByName';
+
 export const getUsersIdArr = totalUsers => {
   const countArrsUserId = Math.ceil(totalUsers / 8);
   let arrWithArrsUsersId = Array.from(
@@ -16,7 +18,8 @@ export const getUsersIdArr = totalUsers => {
   return arrWithArrsUsersId;
 };
 
-export const getUsersIdArrByName = arrWithUsers => {
+export const getUsersIdArrByName = arr => {
+  const arrWithUsers = sortByName(arr);
   const countArrsUserId = Math.ceil(arrWithUsers.length / 8);
   let arrWithArrsUsersId = Array.from(
     { length: countArrsUserId },
