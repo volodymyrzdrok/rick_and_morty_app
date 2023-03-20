@@ -10,6 +10,5 @@ const firebaseConfig = {
   appId: '1:495852158541:web:0641d53342db7a122de604',
 };
 
-//  Facebook https://rick-and-morty-b62bd.firebaseapp.com/__/auth/handler
 export const app = initializeApp(firebaseConfig);
 export const googleAuthProvider = new GoogleAuthProvider();

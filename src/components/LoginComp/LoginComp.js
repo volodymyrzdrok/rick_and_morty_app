@@ -1,37 +1,34 @@
-import { useLocalStorage } from 'hooks/useLocalStorage';
 import { getAuth, signInWithPopup } from 'firebase/auth';
 import { app, googleAuthProvider } from 'services/firebase';
-// import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/slice';
+import s from './LoginComp.module.scss';
+import GoogleSvg from 'assets/icons/GoogleSvg';
 
 const LoginComp = () => {
   const auth = getAuth(app);
-  const [user, setUser] = useLocalStorage('r&m_user', auth.currentUser);
-  // const [user, setUser] = useState(auth.currentUser);
+
+  const dispatch = useDispatch();
 
   const loginByGoogle = () => {
-    const unsub = auth.onAuthStateChanged(maybeUser => {
-      if (maybeUser) {
-        return setUser(maybeUser);
-      }
+    const unSub = auth.onAuthStateChanged(_ => {
       signInWithPopup(auth, googleAuthProvider)
         .then(credentials => {
-          // console.log('credentiols :', credentials);
-          setUser(credentials.user);
+          const { displayName, photoURL } = credentials.user;
+
+          dispatch(logIn({ displayName, photoURL }));
         })
-        .catch(err => console.log(err));
+        .catch(err => console.error(err));
     });
 
-    return unsub;
+    return unSub;
   };
 
-  const logOut = () => {};
-
-  console.log('user  :', user);
-
   return (
-    <div>
-      <button onClick={loginByGoogle}>google</button>
-      <button onClick={logOut}>log Out</button>
+    <div className={s.container}>
+      <button className={s.btn} onClick={loginByGoogle}>
+        <GoogleSvg /> google
+      </button>
     </div>
   );
 };

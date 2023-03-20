@@ -46,11 +46,7 @@
   }
 }
 
-// @mixin to-mobile-media {
-//   @media screen and (max-width: $to-mobile) {
-//     @content;
-//   }
-// }
+
 @mixin mobile-media {
   @media screen and (min-width: $mobile) {
     @content;

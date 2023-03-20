@@ -1,4 +1,5 @@
 import Loader from 'components/Loader/Loader';
+import LogOut from 'components/LogOut/LogOut';
 import { useState } from 'react';
 import { NavLink, useLocation, useParams } from 'react-router-dom';
 import { fetchCHaracter } from 'services/apiService';
@@ -34,6 +35,7 @@ const CharacterDetails = () => {
 
   return (
     <div>
+      <LogOut />
       <NavLink
         className={s.goBackBtn}
         to={state?.prevLocationPath ?? routes.home}

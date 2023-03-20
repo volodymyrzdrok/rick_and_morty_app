@@ -12,6 +12,7 @@ import {
 } from 'services/apiService';
 import { getUsersIdArr, getUsersIdArrByName } from 'utils/getUsersIdArr';
 import Logo from 'components/Logo/Logo';
+import LogOut from 'components/LogOut/LogOut';
 
 const Home = () => {
   const [arrWithIds, setArrWithIds] = useState([]);
@@ -87,6 +88,7 @@ const Home = () => {
 
   return (
     <>
+      <LogOut />
       <Logo />
       <FilterInput onChangeFilter={onChangeFilter} filter={filter} />
       {isLoading ? (

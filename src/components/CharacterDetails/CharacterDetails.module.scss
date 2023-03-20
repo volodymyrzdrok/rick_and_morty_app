@@ -12,6 +12,7 @@
   @include font(18px, 21px, 600);
   color: $mainTextColor;
 }
+
 .containerInfo {
   @include centeredFlex();
   flex-direction: column;

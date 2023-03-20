@@ -1,0 +1,46 @@
+@import 'index.scss';
+
+.userContainer {
+  position: fixed;
+  right: 5px;
+  top: 5px;
+
+  @include tablet-media {
+    right: 25px;
+    top: 25px;
+  }
+}
+.name {
+  color: $placeholderColor;
+  font-size: 12px;
+  @include to-mobile-only-media {
+    display: none;
+  }
+}
+.contSignOut {
+  @include centeredFlex();
+}
+
+.img {
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid #f2f2f7;
+  margin-right: 10px;
+}
+
+.btnSignUp {
+  @include centeredFlex();
+  flex-direction: column;
+  font-family: 'Karla';
+  @include font(10px, 14px, 400);
+  color: $mainTextColor;
+  border: none;
+  background-color: transparent;
+}
+
+.svg {
+  width: 20px;
+  display: box;
+
+  fill: $mainTextColor;
+}
