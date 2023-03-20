@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/rick_and_morty_app/static/css/main.b6a23e89.css",
-    "main.js": "/rick_and_morty_app/static/js/main.e537e51c.js",
-    "static/css/909.c17de894.chunk.css": "/rick_and_morty_app/static/css/909.c17de894.chunk.css",
+    "main.js": "/rick_and_morty_app/static/js/main.08a88919.js",
+    "static/css/909.b65187b3.chunk.css": "/rick_and_morty_app/static/css/909.b65187b3.chunk.css",
     "static/js/909.59cc7cba.chunk.js": "/rick_and_morty_app/static/js/909.59cc7cba.chunk.js",
-    "static/css/601.6e9b4fbe.chunk.css": "/rick_and_morty_app/static/css/601.6e9b4fbe.chunk.css",
+    "static/css/601.698af312.chunk.css": "/rick_and_morty_app/static/css/601.698af312.chunk.css",
     "static/js/601.4070ad7f.chunk.js": "/rick_and_morty_app/static/js/601.4070ad7f.chunk.js",
     "static/css/859.14398f28.chunk.css": "/rick_and_morty_app/static/css/859.14398f28.chunk.css",
     "static/js/859.cea25605.chunk.js": "/rick_and_morty_app/static/js/859.cea25605.chunk.js",
@@ -14,10 +14,10 @@
     "static/media/logo.webp": "/rick_and_morty_app/static/media/logo.529e78a03d331fd0b143.webp",
     "index.html": "/rick_and_morty_app/index.html",
     "main.b6a23e89.css.map": "/rick_and_morty_app/static/css/main.b6a23e89.css.map",
-    "main.e537e51c.js.map": "/rick_and_morty_app/static/js/main.e537e51c.js.map",
-    "909.c17de894.chunk.css.map": "/rick_and_morty_app/static/css/909.c17de894.chunk.css.map",
+    "main.08a88919.js.map": "/rick_and_morty_app/static/js/main.08a88919.js.map",
+    "909.b65187b3.chunk.css.map": "/rick_and_morty_app/static/css/909.b65187b3.chunk.css.map",
     "909.59cc7cba.chunk.js.map": "/rick_and_morty_app/static/js/909.59cc7cba.chunk.js.map",
-    "601.6e9b4fbe.chunk.css.map": "/rick_and_morty_app/static/css/601.6e9b4fbe.chunk.css.map",
+    "601.698af312.chunk.css.map": "/rick_and_morty_app/static/css/601.698af312.chunk.css.map",
     "601.4070ad7f.chunk.js.map": "/rick_and_morty_app/static/js/601.4070ad7f.chunk.js.map",
     "859.14398f28.chunk.css.map": "/rick_and_morty_app/static/css/859.14398f28.chunk.css.map",
     "859.cea25605.chunk.js.map": "/rick_and_morty_app/static/js/859.cea25605.chunk.js.map",
@@ -27,6 +27,6 @@
   },
   "entrypoints": [
     "static/css/main.b6a23e89.css",
-    "static/js/main.e537e51c.js"
+    "static/js/main.08a88919.js"
   ]
 }
